@@ -1,0 +1,21 @@
+
+{% extends "news/base.html" %}
+{% block content %}
+    {% for a in articles %}
+       <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <span class="mr-2">{{ a.author }}</span>
+              <small class="text-muted">{{ a.date_posted }}</small>
+            </div>
+            <h2><a class="article-title" href="{% url 'article-detail' a.id %}">{{ a.title }}</a></h2>
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}
+
+{% block list %}
+   {% for f in fav %}
+      <li class="list-group-item list-group-item-light">{{f}}</li>
+    {% endfor %}
+{% endblock list %}
